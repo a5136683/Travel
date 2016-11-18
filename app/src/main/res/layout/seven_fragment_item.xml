@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="250dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/back_image"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"/>
+
+        <View
+            android:id="@+id/view"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:background="#2000" />
+
+        <TextView
+            android:id="@+id/country_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="中国"
+            android:textColor="#fff" />
+
+        <View
+            android:id="@+id/bottom_line"
+            android:layout_width="140dp"
+            android:layout_height="1dp"
+            android:layout_below="@id/country_name"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="3dp"
+            android:background="#fff" />
+
+        <View
+            android:layout_width="140dp"
+            android:layout_height="1dp"
+            android:layout_above="@id/country_name"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="3dp"
+            android:background="#fff" />
+
+        <TextView
+            android:id="@+id/country_english_name"
+            android:layout_marginTop="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_below="@id/bottom_line"
+            android:textColor="#fff"
+            android:text="china"/>
+
+    </RelativeLayout>
+</RelativeLayout>
