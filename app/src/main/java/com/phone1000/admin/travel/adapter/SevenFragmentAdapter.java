@@ -60,7 +60,12 @@ public class SevenFragmentAdapter extends BaseAdapter {
 //        holder.num.setText(list.get(i).getCommoditiesCnt()+"");
         holder.country_english_name.setText(list.get(i).getEnName());
         holder.country_name.setText(list.get(i).getZhName());
-        Glide.with(context).load(list.get(i).getImages().get(0).getUrl()).into(holder.back_image);
+        Glide.with(context)
+                .load(list.get(i).getImages().get(0).getUrl())
+                .placeholder(R.mipmap.shadow_top)//占位图片
+                .error(R.mipmap.icon_error)//错误图片
+                .crossFade()//淡入淡出效果
+                .into(holder.back_image);
         return v;
     }
     class ViewHolder{
