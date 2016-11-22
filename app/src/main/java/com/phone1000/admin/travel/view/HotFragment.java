@@ -1,13 +1,14 @@
 package com.phone1000.admin.travel.view;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -16,6 +17,7 @@ import com.phone1000.admin.travel.adapter.HotFragmentAdapter;
 import com.phone1000.admin.travel.bean.HotDataInfo;
 import com.phone1000.admin.travel.presenter.HotPresenter;
 import com.phone1000.admin.travel.presenter.IPresenterHot;
+import com.phone1000.admin.travel.view.activity.HotListActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +51,20 @@ public class HotFragment extends Fragment implements IHotFragment{
 
         iPresenterHot.getUrl(url);
 
+        setListener();
         return v;
+    }
+
+    private void setListener() {
+        hot_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), HotListActivity.class);
+                intent.putExtra("id",list.get(i).getId());
+                intent.putExtra("name",list.get(i).getZhName());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

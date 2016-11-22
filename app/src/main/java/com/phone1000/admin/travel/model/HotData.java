@@ -20,6 +20,7 @@ public class HotData implements IDataHot {
 
     private IPresenterHot iPresenterHot = null;
     private Retrofit retrofit;
+    private String baseUrl = "http://api.lvxingpai.com";
 
     public HotData(IPresenterHot iPresenterHot) {
         this.iPresenterHot = iPresenterHot;

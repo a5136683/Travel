@@ -67,7 +67,6 @@ public class HotFragmentAdapter extends BaseAdapter {
                 .error(R.mipmap.icon_error)//错误图片
                 .crossFade()//淡入淡出效果
                 .into(holder.back_image);
-//        Glide.with(context).load(list.get(i).getImages().get(i).getUrl()).into(holder.back_image);
         return v;
     }
     class ViewHolder{

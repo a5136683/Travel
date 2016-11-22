@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -75,7 +74,8 @@ public class DestinationFragment extends android.support.v4.app.Fragment impleme
 //        dl.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);//打开手势滑动
         dl.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN);//无法关闭菜单，只能通过代码进行关闭
         //不设置的话，会出现刚开始时，抽屉会处在打开状态
-        dl.closeDrawer(GravityCompat.END);//设置drawerlayout的默认为关闭的
+        dl.closeDrawer(Gravity.RIGHT);
+//        dl.closeDrawer(GravityCompat.END);//设置drawerlayout的默认为关闭的
 
         return v;
     }
