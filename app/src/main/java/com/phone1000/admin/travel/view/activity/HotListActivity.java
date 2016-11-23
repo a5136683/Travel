@@ -5,6 +5,7 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -31,6 +32,8 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
     private Intent intent = null;
     private ItemHeadDataInfo.ResultBean itemInfo = null;
     private View v = null;
+    private View list_foot = null;
+    private ImageView foot_iv = null;
     @BindView(R.id.hot_list)ListView hot_list;
     @BindView(R.id.load)ImageView load;
     @BindView(R.id.hot_list_title)TextView hot_list_title;
@@ -73,6 +76,8 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
         head_shopping = (LinearLayout) v.findViewById(R.id.head_shopping);
         traffic = (LinearLayout) v.findViewById(R.id.traffic);
         picture_list = (TextView) v.findViewById(R.id.picture_list);
+        list_foot = RelativeLayout.inflate(this,R.layout.hot_list_foot_iv,null);
+        foot_iv = (ImageView) list_foot.findViewById(R.id.foot_iv);
 
         drawable = (AnimationDrawable) load.getBackground();
         drawable.start();
@@ -85,9 +90,15 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
     @Override
     public void getData(List<ItemDataInfo.ResultBean> result) {//获取到数据
         hot_list.addHeaderView(v);
+        if(result.size()!=0){
         hot_list.setAdapter(new HotListAdapter(this,result));
-        load.setVisibility(View.GONE);
         foot.setVisibility(View.VISIBLE);
+        }else{
+//            foot.setVisibility(View.GONE);
+            hot_list.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1));
+            hot_list.addFooterView(list_foot);
+        }
+        load.setVisibility(View.GONE);
     }
 
     @Override
@@ -121,6 +132,10 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
             case R.id.head_notice:
                 break;
             case R.id.head_viewSpot:
+                intent = new Intent(this,ViewSpotActivity.class);
+                intent.putExtra("name",itemInfo.getZhName());
+                intent.putExtra("id",itemInfo.getId());
+                startActivity(intent);
                 break;
             case R.id.head_plan:
                 break;

@@ -1,5 +1,6 @@
 package com.phone1000.admin.travel.view;
 
+import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -15,6 +17,7 @@ import com.phone1000.admin.travel.adapter.SevenFragmentAdapter;
 import com.phone1000.admin.travel.bean.SevenDataInfo;
 import com.phone1000.admin.travel.presenter.ISevenPresenter;
 import com.phone1000.admin.travel.presenter.SevenPresenter;
+import com.phone1000.admin.travel.view.activity.CountryActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,13 +45,26 @@ public class AfricaFragment extends Fragment implements ISevenView{
         iSevenPresenter.getAfricaUrl(url);
         animationDrawable = (AnimationDrawable) load.getBackground();
         animationDrawable.start();
+        setListener();
         return v;
+    }
+
+    private void setListener() {
+        asrica_lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(getContext(), CountryActivity.class);
+                intent.putExtra("id",list.get(i).getId());
+                intent.putExtra("name",list.get(i).getZhName());
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     public void getData(List<SevenDataInfo.ResultBean> list) {
         load.setVisibility(View.GONE);
-        list.addAll(list);
+        this.list.addAll(list);
         asrica_lv.setAdapter(new SevenFragmentAdapter(getActivity(),list));
     }
 }

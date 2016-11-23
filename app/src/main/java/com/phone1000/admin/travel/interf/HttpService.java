@@ -5,6 +5,7 @@ import com.phone1000.admin.travel.bean.HotDataInfo;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.SevenDataInfo;
+import com.phone1000.admin.travel.bean.ViewSpotDataInfo;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
@@ -36,4 +37,6 @@ public interface HttpService {
     Call<ItemHeadDataInfo>getHeadDataInfo(@Path("id") String id);
     @GET("app/geo/localities")
     Call<CountryDataInfo>getCountryInfo(@Query("countryId")String countryId);
+    @GET("app/poi/viewspots")
+    Call<ViewSpotDataInfo>getViewInfo(@Query("locality")String id,@Query("page")String page,@Query("pageSize")String pageSize);
 }

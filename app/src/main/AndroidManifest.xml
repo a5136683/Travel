@@ -20,7 +20,8 @@
         <activity android:name=".view.activity.HotListActivity" />
         <activity android:name=".view.activity.InfoActivity" />
         <activity android:name=".view.activity.WebActivity" />
-        <activity android:name=".view.activity.CountryActivity"></activity>
+        <activity android:name=".view.activity.CountryActivity" />
+        <activity android:name=".view.activity.ViewSpotActivity"></activity>
     </application>
 
 </manifest>
