@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    android:orientation="vertical"
+    android:background="#cdff00"
     tools:context="com.phone1000.admin.travel.MainActivity">
 
 <FrameLayout

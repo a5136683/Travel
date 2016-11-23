@@ -29,7 +29,7 @@ ImageView iv_Mine;
     ImageView iv_Customize;
     @BindView(R.id.iv_Message)
     ImageView iv_Message;
-    private Fragment homeFragment, destinatioFragment, customizeFragment,messageFragment, mineFragment;
+    private Fragment homeFragment, destinationFragment, customizeFragment,messageFragment, mineFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,11 +59,11 @@ ImageView iv_Mine;
                 break;
 
             case 1:
-                if (destinatioFragment == null) {
-                    destinatioFragment = new DestinationFragment();
-                    transaction.add(R.id.flContext, destinatioFragment);
+                if (destinationFragment == null) {
+                    destinationFragment = new DestinationFragment();
+                    transaction.add(R.id.flContext, destinationFragment);
                 } else {
-                    transaction.show(destinatioFragment);
+                    transaction.show(destinationFragment);
                 }
                 iv_Destination.setImageResource(R.mipmap.ic_tab_trip_selected);
                 break;
@@ -140,8 +140,8 @@ ImageView iv_Mine;
         if (homeFragment!=null){
             transaction.hide(homeFragment);
         }
-        if (destinatioFragment!=null){
-            transaction.hide(destinatioFragment);
+        if (destinationFragment!=null){
+            transaction.hide(destinationFragment);
         }
         if (customizeFragment!=null){
             transaction.hide(customizeFragment);
