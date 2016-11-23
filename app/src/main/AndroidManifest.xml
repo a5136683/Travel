@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.phone1000.admin.travel">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -15,6 +17,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".view.activity.HotListActivity"/>
+        <activity android:name=".HomeHead2Activity"/>
+        <activity android:name=".ListViewActivity"/>
+        <activity android:name=".view.activity.CountryActivity"/>
+        <activity android:name=".view.activity.ViewSpotActivity"/>
+        <activity android:name=".view.activity.InfoActivity"/>
+        <activity android:name=".view.activity.WebActivity"/>
     </application>
 
 </manifest>

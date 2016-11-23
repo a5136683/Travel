@@ -1,20 +1,13 @@
 package com.phone1000.admin.travel.adapter;
 
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
-import android.widget.TextView;
 
 import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.bean.HomeListDataInfo;
-
-import org.xutils.x;
 
 import java.util.List;
 
@@ -65,7 +58,7 @@ public class HomeListAdapter extends BaseAdapter{
 
            View v=  LayoutInflater.from(context).inflate(R.layout.home_item2,null);
            MyListView lv = (MyListView) v.findViewById(R.id.MyListView);
-           lv.setAdapter(new HomeListItemAdapter(list,i,context));
+//           lv.setAdapter(new HomeListItemAdapter(list,i,context));
 
         return v;
     }

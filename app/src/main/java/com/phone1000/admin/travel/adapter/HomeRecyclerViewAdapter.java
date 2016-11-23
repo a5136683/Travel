@@ -16,6 +16,7 @@ import org.xutils.x;
 
 import java.util.List;
 
+
 /**
  * Created by Administrator on 2016/11/18.
  */
@@ -57,14 +58,14 @@ public class HomeRecyclerViewAdapter extends RecyclerView.Adapter<HomeRecyclerVi
         return list1==null?0:list1.size();
     }
 
-    class HomeRecyclerViewHolder extends RecyclerView.ViewHolder {
+class HomeRecyclerViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView home_rv_item_iv;
-        public HomeRecyclerViewHolder(View itemView) {
-            super(itemView);
-            home_rv_item_iv = (ImageView) itemView.findViewById(R.id.home_rv_item_iv);
-
-        }
+    ImageView home_rv_item_iv;
+    public HomeRecyclerViewHolder(View itemView) {
+        super(itemView);
+        home_rv_item_iv = (ImageView) itemView.findViewById(R.id.home_rv_item_iv);
 
     }
+
+}
 }
