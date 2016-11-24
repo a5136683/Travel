@@ -159,22 +159,22 @@ public class HomeFragment extends Fragment {
                 x.http().get(entity, new Callback.CommonCallback<String>() {
                     @Override
                     public void onSuccess(String result) {
-
+                        Log.d("test", "****" + result);
                         Gson gson = new Gson();
                         HomeListDataInfo homeListDataInfo = gson.fromJson(result, HomeListDataInfo.class);
                         list.addAll(homeListDataInfo.getResult());
                         lists0=list.get(0);
                         lists1=list.get(1);
 //                        adapter.notifyDataSetChanged();
-                        Log.d("test", "****" + result);
-                        Toast.makeText(getActivity(), "请求成功", Toast.LENGTH_SHORT).show();
+
+                        Toast.makeText(getActivity(), "***LV****请求成功"+result, Toast.LENGTH_SHORT).show();
                         handler.sendEmptyMessage(1);
                     }
 
                     @Override
                     public void onError(Throwable ex, boolean isOnCallback) {
                         Log.d("test", "？？？？？？？？？？？？？？？？？？？？？？" + ex);
-                        Toast.makeText(getActivity(), "请求失败", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "**********////////LV///////*************请求失败", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -216,7 +216,7 @@ public class HomeFragment extends Fragment {
                     @Override
                     public void onError(Throwable ex, boolean isOnCallback) {
                         Log.d("test", "//////////************//////////" + ex);
-                        Toast.makeText(getActivity(), "没看到数据", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "rv/========没看到数据", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
