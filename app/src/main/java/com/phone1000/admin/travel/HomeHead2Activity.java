@@ -7,17 +7,23 @@ import android.view.View;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class HomeHead2Activity extends AppCompatActivity {
     private Intent intent = null;
     private String url = null;
 
     private WebView teach_XianXia_web=null;
+    @BindView(R.id.hot_list_title)TextView hot_list_title;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_head2);
+        ButterKnife.bind(this);
         initView();
         setData();
     }
@@ -46,6 +52,8 @@ public class HomeHead2Activity extends AppCompatActivity {
     private void initView() {
         intent = getIntent();
         url = intent.getStringExtra("link");
+        String name = intent.getStringExtra("name");
+        if(name!=null)hot_list_title.setText(name);
         teach_XianXia_web=(WebView) findViewById(R.id.homre_head_web);
     }
     public void luntanButton(View v){

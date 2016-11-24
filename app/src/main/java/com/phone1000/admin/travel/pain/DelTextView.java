@@ -27,11 +27,12 @@ public class DelTextView extends TextView {
         super(context, attrs, defStyle);
         paint = new Paint();
 
-        paint.setColor(Color.RED);
+        paint.setColor(Color.GRAY);
         paint.setDither(true);
-        paint.setStrokeWidth(4);
+        paint.setStrokeWidth(2);
         paint.setStyle(Paint.Style.FILL);
-        setTextColor(Color.rgb(225,192,00));
+//        setTextColor(Color.rgb(225,192,00));
+        setTextColor(Color.GRAY);
     }
 
     @Override

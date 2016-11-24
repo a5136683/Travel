@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.phone1000.admin.travel.HomeHead2Activity;
 import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.HotListAdapter;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
@@ -59,6 +60,7 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
         head_info.setOnClickListener(this);
         head_notice.setOnClickListener(this);
         traffic.setOnClickListener(this);
+        foot.setOnClickListener(this);
     }
 
     private void initView() {
@@ -130,6 +132,10 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
             case R.id.head_note:
                 break;
             case R.id.head_notice:
+                intent = new Intent(this,HomeHead2Activity.class);
+                intent.putExtra("link",itemInfo.getPlayGuide());
+                intent.putExtra("name","旅游指南");
+                startActivity(intent);
                 break;
             case R.id.head_viewSpot:
                 intent = new Intent(this,ViewSpotActivity.class);
@@ -142,6 +148,16 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
             case R.id.head_shopping:
                 break;
             case R.id.traffic:
+                intent=new Intent(this, HomeHead2Activity.class);
+                intent.putExtra("link",itemInfo.getTrafficInfoUrl());
+                intent.putExtra("name","交通指南");
+                startActivity(intent);
+                break;
+            case R.id.foot:
+                intent = new Intent(this,LookAllActivity.class);
+                intent.putExtra("name",itemInfo.getZhName());
+                intent.putExtra("id",itemInfo.getId());
+                startActivity(intent);
                 break;
         }
     }

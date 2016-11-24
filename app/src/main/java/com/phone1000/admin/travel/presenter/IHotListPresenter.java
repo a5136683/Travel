@@ -11,6 +11,7 @@ import java.util.List;
 
 public interface IHotListPresenter {
     void getId(String id);
+    void getAllId(String id,String start);
     void getData(List<ItemDataInfo.ResultBean> result);
     void getHeadData(ItemHeadDataInfo.ResultBean result);
 }

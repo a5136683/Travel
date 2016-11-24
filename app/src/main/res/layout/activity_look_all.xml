@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_home_head2"
+    android:id="@+id/activity_look_all"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.phone1000.admin.travel.HomeHead2Activity">
+    tools:context="com.phone1000.admin.travel.view.activity.LookAllActivity">
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolBar"
         android:gravity="center"
@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize">
         <TextView
-            android:id="@+id/hot_list_title"
+            android:id="@+id/country_list_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -22,11 +22,14 @@
             android:layout_gravity="center"
             />
     </android.support.v7.widget.Toolbar>
-<WebView
-    android:layout_below="@id/toolBar"
-    android:id="@+id/homre_head_web"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</WebView>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_below="@id/toolBar"
+        android:layout_height="match_parent">
+    <ListView
+        android:id="@+id/look_list"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"></ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
 </RelativeLayout>

@@ -60,15 +60,15 @@
                 android:layout_alignParentRight="true"
                 android:text="@string/test"
                 android:textColor="#f00"
-                android:textSize="16sp" />
+                android:textSize="12sp" />
 
-            <TextView
+            <com.phone1000.admin.travel.pain.DelTextView
                 android:id="@+id/hot_item_marketPrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/hot_item_price"
                 android:layout_toLeftOf="@+id/hot_item_price"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:text="@string/test" />
 
             <TextView
@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/hot_item_price"
                 android:layout_toRightOf="@+id/level"
-                android:textSize="12sp"
+                android:textSize="10sp"
                 android:text="@string/test" />
 
             <RatingBar

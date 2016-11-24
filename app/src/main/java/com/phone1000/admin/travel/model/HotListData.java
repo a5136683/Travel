@@ -57,4 +57,23 @@ public class HotListData implements IHotListData{
                 }
             });
     }
+
+    @Override
+    public void getAllId(String id,String start) {
+        Retrofit.Builder builder = new Retrofit.Builder();
+        retrofit = builder.baseUrl(BaseUrl.baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
+        HttpService httpService = retrofit.create(HttpService.class);
+        httpService.getItemDataInfo("15", id, start).enqueue(new Callback<ItemDataInfo>() {
+            @Override
+            public void onResponse(Call<ItemDataInfo> call, Response<ItemDataInfo> response) {
+                List<ItemDataInfo.ResultBean> result = response.body().getResult();
+                iHotListPresenter.getData(result);
+            }
+
+            @Override
+            public void onFailure(Call<ItemDataInfo> call, Throwable t) {
+
+            }
+        });
+    }
 }

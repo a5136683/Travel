@@ -63,8 +63,8 @@ public class HotListAdapter extends BaseAdapter {
 
         holder.hot_item_title.setText(result.get(i).getTitle());
         holder.hot_item_name.setText(result.get(i).getSeller().getName());
-        holder.hot_item_price.setText(result.get(i).getPrice()+"");
-        holder.hot_item_marketPrice.setText(result.get(i).getMarketPrice()+"");
+        holder.hot_item_price.setText("￥"+result.get(i).getPrice()+"");
+        holder.hot_item_marketPrice.setText("￥"+result.get(i).getMarketPrice()+"起");
         holder.sale.setText(result.get(i).getSalesVolume()+"已售");
         holder.level.setRating(result.get(i).getRating()*5);
         if(result.get(i).getCover()!=null)

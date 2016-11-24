@@ -27,6 +27,11 @@ public class HotListPresenter implements IHotListPresenter {
     }
 
     @Override
+    public void getAllId(String id, String start) {
+        iHotListData.getAllId(id,start);
+    }
+
+    @Override
     public void getData(List<ItemDataInfo.ResultBean> result) {
         iHotList.getData(result);
     }
