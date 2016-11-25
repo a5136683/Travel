@@ -11,4 +11,5 @@ import java.util.List;
 public interface IViewSpotPresenter {
     void getId(String id,String page);
     void getData(List<ViewSpotDataInfo.ResultBean> result);
+    void getNoteData();
 }

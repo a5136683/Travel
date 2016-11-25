@@ -26,6 +26,7 @@ public class CountryActivity extends AppCompatActivity implements ICountryList{
     @BindView(R.id.country_list)RecyclerView country_list;
     @BindView(R.id.country_list_title)TextView country_list_title;
     @BindView(R.id.load)ImageView load;
+    @BindView(R.id.back)ImageView back;
     private AnimationDrawable drawable = null;
 
     private ICountryPresenter iCountryPresenter = new CountryPresenter(this);
@@ -39,6 +40,12 @@ public class CountryActivity extends AppCompatActivity implements ICountryList{
         country_list_title.setText(getIntent().getStringExtra("name"));
         drawable = (AnimationDrawable) load.getBackground();
         drawable.start();
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     @Override

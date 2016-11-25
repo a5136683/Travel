@@ -2,6 +2,7 @@ package com.phone1000.admin.travel.view.activity;
 
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
+import com.phone1000.admin.travel.bean.NoteDataInfo;
 
 import java.util.List;
 
@@ -12,4 +13,5 @@ import java.util.List;
 public interface IHotList {
     void getData(List<ItemDataInfo.ResultBean> result);
     void getHeadData(ItemHeadDataInfo.ResultBean result);
+    void getNoteData(List<NoteDataInfo.ResultBean> result);
 }

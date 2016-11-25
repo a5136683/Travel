@@ -24,7 +24,9 @@
         <activity android:name=".view.activity.ViewSpotActivity" />
         <activity android:name=".view.activity.InfoActivity" />
         <activity android:name=".view.activity.WebActivity" />
-        <activity android:name=".view.activity.LookAllActivity"></activity>
+        <activity android:name=".view.activity.LookAllActivity" />
+        <activity android:name=".view.activity.NoteActivity" />
+        <activity android:name=".view.activity.ItemActivity"></activity>
     </application>
 
 </manifest>

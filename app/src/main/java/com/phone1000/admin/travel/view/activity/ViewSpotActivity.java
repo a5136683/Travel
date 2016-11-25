@@ -1,9 +1,13 @@
 package com.phone1000.admin.travel.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -22,6 +26,7 @@ import butterknife.ButterKnife;
 public class ViewSpotActivity extends AppCompatActivity implements IViewSpot{
 
     private int page = 0;
+    private Intent intent = null;
     private String id = null;
     private ViewSpotAdapter adapter = null;
     private boolean flag = false;
@@ -30,26 +35,34 @@ public class ViewSpotActivity extends AppCompatActivity implements IViewSpot{
     @BindView(R.id.view_spot)ListView view_spot;
     @BindView(R.id.country_list_title)TextView title;
     @BindView(R.id.swipe)SwipeRefreshLayout swipe;
+    @BindView(R.id.back)ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_spot);
         ButterKnife.bind(this);
-        title.setText(getIntent().getStringExtra("name"));
+        title.setText(getIntent().getStringExtra("name")+"景点");
         initView();
         setData();
         setListener();
     }
 
     private void setListener() {
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
                 page = 0;
                 list.clear();
                 setData();
-
             }
         });
         view_spot.setOnScrollListener(new AbsListView.OnScrollListener() {
@@ -68,13 +81,21 @@ public class ViewSpotActivity extends AppCompatActivity implements IViewSpot{
                 }
             }
         });
+        view_spot.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                intent = new Intent(ViewSpotActivity.this,ItemActivity.class);
+                intent.putExtra("id",list.get(i).getId());
+                intent.putExtra("name",list.get(i).getZhName());
+                startActivity(intent);
+            }
+        });
     }
 
     private void setData() {
         iViewSpotPresenter.getId(id,""+ page++);
     }
 
-    //http://api.lvxingpai.com/app/poi/viewspots?locality=546f2da8b8ce0440eddb2897&page=1&pageSize=15
     private void initView() {
         adapter = new ViewSpotAdapter(this,list);
         view_spot.setAdapter(adapter);

@@ -2,6 +2,7 @@ package com.phone1000.admin.travel.model;
 
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
+import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.interf.BaseUrl;
 import com.phone1000.admin.travel.interf.HttpService;
 import com.phone1000.admin.travel.presenter.IHotListPresenter;
@@ -72,6 +73,25 @@ public class HotListData implements IHotListData{
 
             @Override
             public void onFailure(Call<ItemDataInfo> call, Throwable t) {
+
+            }
+        });
+    }
+
+    @Override
+    public void getNoteId(String id, String start) {
+        Retrofit.Builder builder = new Retrofit.Builder();
+        retrofit = builder.baseUrl(BaseUrl.baseUrl).addConverterFactory(GsonConverterFactory.create()).build();
+        HttpService httpService = retrofit.create(HttpService.class);
+        httpService.getNoteInfo(id,start,"15").enqueue(new Callback<NoteDataInfo>() {
+            @Override
+            public void onResponse(Call<NoteDataInfo> call, Response<NoteDataInfo> response) {
+                List<NoteDataInfo.ResultBean> result = response.body().getResult();
+                iHotListPresenter.getNoteData(result);
+            }
+
+            @Override
+            public void onFailure(Call<NoteDataInfo> call, Throwable t) {
 
             }
         });

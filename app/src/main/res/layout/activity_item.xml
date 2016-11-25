@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_item"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context="com.phone1000.admin.travel.view.activity.ItemActivity">
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/tool_bar" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/item_vp"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginBottom="10dp"></android.support.v4.view.ViewPager>
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/item_vp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/test" />
+
+            <RatingBar
+                android:layout_marginLeft="5dp"
+                android:id="@+id/ratingBar"
+                android:layout_marginRight="7dp"
+                android:stepSize="0.1"
+                style="@style/Base.Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@id/time"
+                android:layout_alignTop="@id/time" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/price"
+                android:layout_marginRight="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ratingBar"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/test" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/open_time"
+                android:layout_marginRight="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/test" />
+
+            <View
+                android:id="@+id/view1"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_below="@id/open_time"
+                android:background="#eee"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/info_right"
+                android:layout_alignTop="@+id/info_right"
+                android:layout_below="@id/view1"
+                android:text="简介" />
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="7dp"
+                android:id="@+id/info_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/view1"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/icon_arrow_right_white" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/info_right"
+                android:background="#000"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="7dp"
+                android:id="@+id/desc"
+                android:text="@string/test"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/info_right"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:lines="3" />
+
+            <View
+                android:id="@+id/view2"
+                android:background="#eee"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_below="@id/desc"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="7dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/traffic_right"
+                android:layout_alignTop="@id/traffic_right"
+                android:layout_below="@id/view2"
+                android:text="交通" />
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/traffic_right"
+                android:layout_marginRight="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/view2"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/icon_arrow_right_white" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/traffic_right"
+                android:background="#000"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/address"
+                android:layout_marginRight="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/traffic_right"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/test" />
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/address_iv"
+                android:layout_width="36dp"
+                android:layout_marginRight="7dp"
+                android:layout_height="36dp"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/traffic_right"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/poi_icon_address" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/car_plan"
+                android:layout_marginRight="7dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/address_iv"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/test" />
+
+            <View
+                android:id="@+id/view3"
+                android:background="#eee"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_below="@id/car_plan"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="7dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/strategy_right"
+                android:layout_alignTop="@+id/strategy_right"
+                android:layout_below="@id/view3"
+                android:text="攻略" />
+
+            <ImageView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/strategy_right"
+                android:layout_width="wrap_content"
+                android:layout_marginRight="7dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/view3"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/icon_arrow_right_white" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/strategy_right"
+                android:background="#000"/>
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:id="@+id/strategy_desc"
+                android:layout_width="match_parent"
+                android:layout_marginRight="7dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/strategy_right"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:lines="3"
+                android:text="@string/test" />
+
+            <View
+                android:id="@+id/view4"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_below="@id/strategy_desc"
+                android:layout_marginBottom="10dp"
+                android:background="#eee"
+                android:layout_marginTop="10dp" />
+
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:layout_alignBottom="@+id/tips_right"
+                android:layout_alignTop="@+id/tips_right"
+                android:layout_below="@id/view4"
+                android:text="贴士" />
+
+            <ImageView
+                android:id="@+id/tips_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="7dp"
+                android:layout_below="@id/view4"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:src="@mipmap/icon_arrow_right_white" />
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@id/tips_right"
+                android:background="#000"/>
+            <TextView
+                android:id="@+id/tips_desc"
+                android:layout_below="@id/tips_right"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="7dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/test"
+                android:lines="2" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

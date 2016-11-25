@@ -29,4 +29,9 @@ public class ViewSpotPresenter implements IViewSpotPresenter {
     public void getData(List<ViewSpotDataInfo.ResultBean> result) {
         iViewSpot.getData(result);
     }
+
+    @Override
+    public void getNoteData() {
+
+    }
 }

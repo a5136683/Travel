@@ -2,6 +2,7 @@ package com.phone1000.admin.travel.presenter;
 
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
+import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.model.HotListData;
 import com.phone1000.admin.travel.model.IHotListData;
 import com.phone1000.admin.travel.view.activity.IHotList;
@@ -29,6 +30,16 @@ public class HotListPresenter implements IHotListPresenter {
     @Override
     public void getAllId(String id, String start) {
         iHotListData.getAllId(id,start);
+    }
+
+    @Override
+    public void getNoteId(String id, String start) {
+        iHotListData.getNoteId(id,start);
+    }
+
+    @Override
+    public void getNoteData(List<NoteDataInfo.ResultBean> result) {
+        iHotList.getNoteData(result);
     }
 
     @Override

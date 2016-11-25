@@ -2,8 +2,10 @@ package com.phone1000.admin.travel.interf;
 
 import com.phone1000.admin.travel.bean.CountryDataInfo;
 import com.phone1000.admin.travel.bean.HotDataInfo;
+import com.phone1000.admin.travel.bean.Item2DataInfo;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
+import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.bean.SevenDataInfo;
 import com.phone1000.admin.travel.bean.ViewSpotDataInfo;
 
@@ -39,4 +41,8 @@ public interface HttpService {
     Call<CountryDataInfo>getCountryInfo(@Query("countryId")String countryId);
     @GET("app/poi/viewspots")
     Call<ViewSpotDataInfo>getViewInfo(@Query("locality")String id,@Query("page")String page,@Query("pageSize")String pageSize);
+    @GET("app/travelnotes")
+    Call<NoteDataInfo>getNoteInfo(@Query("locality")String id, @Query("page")String page, @Query("pageSize")String pageSize);
+    @GET("app/poi/viewspots/{id}")
+    Call<Item2DataInfo>getItemInfo(@Path("id")String id);
 }

@@ -8,5 +8,6 @@ public interface IHotListData {
 
     void getId(String id);
     void getAllId(String id,String start);
+    void getNoteId(String id, String start);
 
 }

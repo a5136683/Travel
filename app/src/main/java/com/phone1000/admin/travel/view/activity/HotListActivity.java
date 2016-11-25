@@ -18,9 +18,11 @@ import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.HotListAdapter;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
+import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.presenter.HotListPresenter;
 import com.phone1000.admin.travel.presenter.IHotListPresenter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -35,10 +37,12 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
     private View v = null;
     private View list_foot = null;
     private ImageView foot_iv = null;
+    private List<ItemDataInfo.ResultBean> list = new ArrayList<>();
     @BindView(R.id.hot_list)ListView hot_list;
     @BindView(R.id.load)ImageView load;
-    @BindView(R.id.hot_list_title)TextView hot_list_title;
+    @BindView(R.id.country_list_title)TextView hot_list_title;
     @BindView(R.id.foot)TextView foot;
+    @BindView(R.id.back)ImageView back;
     private ImageView head_image;
     private TextView country_name,country_english_name,commodity_num,picture_list;
     private LinearLayout head_info,head_notice,traffic,head_viewSpot,head_plan,head_note,head_food,head_shopping;
@@ -61,6 +65,16 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
         head_notice.setOnClickListener(this);
         traffic.setOnClickListener(this);
         foot.setOnClickListener(this);
+        back.setOnClickListener(this);
+        foot_iv.setOnClickListener(this);
+//        hot_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                intent = new Intent(HotListActivity.this,ItemActivity.class);
+//                intent.putExtra("id",list.get(i).getId());
+//                intent.putExtra("name",list.get(i).get)
+//            }
+//        });
     }
 
     private void initView() {
@@ -92,8 +106,9 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
     @Override
     public void getData(List<ItemDataInfo.ResultBean> result) {//获取到数据
         hot_list.addHeaderView(v);
-        if(result.size()!=0){
-        hot_list.setAdapter(new HotListAdapter(this,result));
+        list.addAll(result);
+        if(list.size()!=0){
+        hot_list.setAdapter(new HotListAdapter(this,list));
         foot.setVisibility(View.VISIBLE);
         }else{
 //            foot.setVisibility(View.GONE);
@@ -118,6 +133,11 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
     }
 
     @Override
+    public void getNoteData(List<NoteDataInfo.ResultBean> result) {
+
+    }
+
+    @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.head_food:
@@ -126,10 +146,14 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
             case R.id.head_info:
                 intent = new Intent(this,InfoActivity.class);
                 intent.putExtra("desc",itemInfo.getDesc());
-                intent.putExtra("name",itemInfo.getZhName());
+                intent.putExtra("name","城市简介");
                 startActivity(intent);
                 break;
-            case R.id.head_note:
+            case R.id.head_note://游记
+                intent = new Intent(this,NoteActivity.class);
+                intent.putExtra("name","全部游记");
+                intent.putExtra("id",itemInfo.getId());
+                startActivity(intent);
                 break;
             case R.id.head_notice:
                 intent = new Intent(this,HomeHead2Activity.class);
@@ -143,7 +167,7 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
                 intent.putExtra("id",itemInfo.getId());
                 startActivity(intent);
                 break;
-            case R.id.head_plan:
+            case R.id.head_plan://行程
                 break;
             case R.id.head_shopping:
                 break;
@@ -158,6 +182,15 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
                 intent.putExtra("name",itemInfo.getZhName());
                 intent.putExtra("id",itemInfo.getId());
                 startActivity(intent);
+                break;
+            case R.id.foot_iv:
+                intent = new Intent(this,HomeHead2Activity.class);
+                intent.putExtra("name","旅行派各国商户招募计划");
+                intent.putExtra("link","http://nluloh.epub360.com/v2/manage/book/pe3rs2/");
+                startActivity(intent);
+                break;
+            case R.id.back:
+                finish();
                 break;
         }
     }

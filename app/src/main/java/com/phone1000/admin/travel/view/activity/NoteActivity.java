@@ -1,16 +1,18 @@
 package com.phone1000.admin.travel.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.phone1000.admin.travel.HomeHead2Activity;
 import com.phone1000.admin.travel.R;
-import com.phone1000.admin.travel.adapter.HotListAdapter;
+import com.phone1000.admin.travel.adapter.NoteAdapter;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
@@ -23,24 +25,24 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LookAllActivity extends AppCompatActivity implements IHotList{
+public class NoteActivity extends AppCompatActivity implements IHotList{
 
-    @BindView(R.id.country_list_title)TextView country_list_title;
-    @BindView(R.id.look_list)ListView look_list;
-    @BindView(R.id.swipe)SwipeRefreshLayout swipe;
+    @BindView(R.id.note_list)ListView note_list;
+    @BindView(R.id.country_list_title)TextView title;
     @BindView(R.id.back)ImageView back;
 
-    List<ItemDataInfo.ResultBean> list = new ArrayList<>();
-    private HotListAdapter adapter = null;
     private String id = null;
-    private int start = 0 ;
+    private int page = 0;
     private boolean flag = false;
     private IHotListPresenter iHotListPresenter = new HotListPresenter(this);
+    private List<NoteDataInfo.ResultBean> list = new ArrayList<>();
+    private NoteAdapter adapter = null;
+    private Intent intent = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_look_all);
+        setContentView(R.layout.activity_note);
         ButterKnife.bind(this);
         initView();
         setData();
@@ -56,16 +58,16 @@ public class LookAllActivity extends AppCompatActivity implements IHotList{
             }
         });
 
-        swipe.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+        note_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onRefresh() {
-                list.clear();
-                start=0;
-                setData();
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                intent = new Intent(NoteActivity.this, HomeHead2Activity.class);
+                intent.putExtra("link",list.get(i).getDetailUrl());
+                intent.putExtra("name","游记详情");
+                startActivity(intent);
             }
         });
-
-        look_list.setOnScrollListener(new AbsListView.OnScrollListener() {
+        note_list.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView absListView, int i) {
                 if(flag){
@@ -76,7 +78,7 @@ public class LookAllActivity extends AppCompatActivity implements IHotList{
 
             @Override
             public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-                if(i+i1==i2){
+                if(i + i1 == i2){
                     flag = true;
                 }
             }
@@ -84,22 +86,19 @@ public class LookAllActivity extends AppCompatActivity implements IHotList{
     }
 
     private void setData() {
-        iHotListPresenter.getAllId(id,""+start);
-        start+=15;
+        iHotListPresenter.getNoteId(id,""+page++);
     }
 
     private void initView() {
-        country_list_title.setText(getIntent().getStringExtra("name")+"玩乐");
+        title.setText(getIntent().getStringExtra("name"));
         id = getIntent().getStringExtra("id");
-        adapter = new HotListAdapter(this,list);
-        look_list.setAdapter(adapter);
+        adapter = new NoteAdapter(this,list);
+        note_list.setAdapter(adapter);
     }
 
     @Override
     public void getData(List<ItemDataInfo.ResultBean> result) {
-        list.addAll(result);
-        adapter.notifyDataSetChanged();
-        swipe.setRefreshing(false);
+
     }
 
     @Override
@@ -109,6 +108,7 @@ public class LookAllActivity extends AppCompatActivity implements IHotList{
 
     @Override
     public void getNoteData(List<NoteDataInfo.ResultBean> result) {
-
+        list.addAll(result);
+        adapter.notifyDataSetChanged();
     }
 }
