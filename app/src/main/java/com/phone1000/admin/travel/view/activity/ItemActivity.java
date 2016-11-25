@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.phone1000.admin.travel.HomeHead2Activity;
+import com.phone1000.admin.travel.MapActivity;
 import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.ItemViewPagerAdapter;
 import com.phone1000.admin.travel.bean.Item2DataInfo;
@@ -87,7 +88,11 @@ public class ItemActivity extends AppCompatActivity implements IItem,View.OnClic
         desc.setText(data.getDesc());
         address.setText("地址:"+data.getAddress());
         car_plan.setText("乘车方案:"+data.getTrafficInfo());
-        tips_desc.setText("小贴士:"+data.getTips().get(0).getDesc());
+        if("".equals(data.getTips().get(0).getDesc())){
+        tips_desc.setText("小贴士:"+data.getTips().get(0).getDesc());}
+        else{
+            tips_desc.setText("无");
+        }
         images = result.getImages();
         item_vp.setAdapter(new ItemViewPagerAdapter(images,this));
         if("".equals(data.getVisitGuide())){
@@ -127,6 +132,12 @@ public class ItemActivity extends AppCompatActivity implements IItem,View.OnClic
                 startActivity(intent);
                 break;
             case R.id.address_iv:
+                intent = new Intent(this, MapActivity.class);
+                intent.putExtra("lon",data.getLocation().getCoordinates().get(0));
+                intent.putExtra("lat",data.getLocation().getCoordinates().get(1));
+                intent.putExtra("name",data.getZhName());
+//                intent = Intent.parseUri()
+                startActivity(intent);
                 break;
             case R.id.back:
                 finish();

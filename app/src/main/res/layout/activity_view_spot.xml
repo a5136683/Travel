@@ -7,10 +7,10 @@
     tools:context="com.phone1000.admin.travel.view.activity.ViewSpotActivity">
 
     <include layout="@layout/tool_bar"
-        android:id="@+id/toolBar"/>
+        android:id="@+id/toolBar1"/>
     <android.support.v4.widget.SwipeRefreshLayout
         android:id="@+id/swipe"
-        android:layout_below="@id/toolBar"
+        android:layout_below="@id/toolBar1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
     <ListView

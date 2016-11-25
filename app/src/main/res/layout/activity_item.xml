@@ -8,13 +8,13 @@
     tools:context="com.phone1000.admin.travel.view.activity.ItemActivity">
 
     <include
-        android:id="@+id/toolBar"
+        android:id="@+id/toolBar1"
         layout="@layout/tool_bar" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolBar">
+        android:layout_below="@id/toolBar1">
 
         <RelativeLayout
             android:layout_width="match_parent"

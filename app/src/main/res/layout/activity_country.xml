@@ -7,9 +7,9 @@
     android:orientation="vertical"
     tools:context="com.phone1000.admin.travel.view.activity.CountryActivity">
     <include layout="@layout/tool_bar"
-        android:id="@+id/toolBar"/>
+        android:id="@+id/toolBar1"/>
     <android.support.v7.widget.RecyclerView
-        android:layout_below="@id/toolBar"
+        android:layout_below="@id/toolBar1"
         android:id="@+id/country_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"></android.support.v7.widget.RecyclerView>

@@ -35,7 +35,7 @@ ImageView iv_Mine;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        setSelect(0);
+        setSelect(0);
     }
 
     private void setSelect(int select) {
