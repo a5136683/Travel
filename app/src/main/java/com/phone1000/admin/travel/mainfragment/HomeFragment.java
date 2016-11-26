@@ -3,10 +3,8 @@ package com.phone1000.admin.travel.mainfragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
@@ -20,7 +18,6 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.phone1000.admin.travel.R;
@@ -33,6 +30,7 @@ import com.phone1000.admin.travel.bean.HomeRecyclDataInfo;
 import org.xutils.common.Callback;
 import org.xutils.http.RequestParams;
 import org.xutils.x;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -167,14 +165,14 @@ public class HomeFragment extends Fragment {
                         lists1=list.get(1);
 //                        adapter.notifyDataSetChanged();
 
-                        Toast.makeText(getActivity(), "***LV****请求成功"+result, Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), "***LV****请求成功"+result, Toast.LENGTH_SHORT).show();
                         handler.sendEmptyMessage(1);
                     }
 
                     @Override
                     public void onError(Throwable ex, boolean isOnCallback) {
-                        Log.d("test", "？？？？？？？？？？？？？？？？？？？？？？" + ex);
-                        Toast.makeText(getActivity(), "**********////////LV///////*************请求失败", Toast.LENGTH_SHORT).show();
+//                        Log.d("test", "？？？？？？？？？？？？？？？？？？？？？？" + ex);
+//                        Toast.makeText(getActivity(), "**********////////LV///////*************请求失败", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -209,14 +207,14 @@ public class HomeFragment extends Fragment {
                         List<HomeRecyclDataInfo.ResultBean> result1 = homeRecyclDataInfo.getResult();
                         List<HomeRecyclDataInfo.ResultBean.ColumnsBean> columns = result1.get(1).getColumns();
                         list1.addAll(columns);
-                        Toast.makeText(getActivity(), "有数据了", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), "有数据了", Toast.LENGTH_SHORT).show();
                         handler.sendEmptyMessage(2);
                     }
 
                     @Override
                     public void onError(Throwable ex, boolean isOnCallback) {
-                        Log.d("test", "//////////************//////////" + ex);
-                        Toast.makeText(getActivity(), "rv/========没看到数据", Toast.LENGTH_SHORT).show();
+//                        Log.d("test", "//////////************//////////" + ex);
+//                        Toast.makeText(getActivity(), "rv/========没看到数据", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
@@ -248,14 +246,14 @@ public class HomeFragment extends Fragment {
                         List<HomeRecyclDataInfo.ResultBean> result1 = homeRecyclDataInfo.getResult();
                         List<HomeRecyclDataInfo.ResultBean.ColumnsBean> columns = result1.get(0).getColumns();
                         list2.addAll(columns);
-                        Toast.makeText(getActivity(), "有数据了", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), "有数据了", Toast.LENGTH_SHORT).show();
                         handler.sendEmptyMessage(3);
                     }
 
                     @Override
                     public void onError(Throwable ex, boolean isOnCallback) {
                         Log.d("test", "//////////************//////////" + ex);
-                        Toast.makeText(getActivity(), "没看到数据", Toast.LENGTH_SHORT).show();
+//                        Toast.makeText(getActivity(), "没看到数据", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override

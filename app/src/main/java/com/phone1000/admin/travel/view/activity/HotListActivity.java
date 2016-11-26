@@ -148,24 +148,31 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
                 intent.putExtra("desc",itemInfo.getDesc());
                 intent.putExtra("name","城市简介");
                 startActivity(intent);
+//                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);//淡入淡出
+//                overridePendingTransition(android.R.anim.slide_in_left,android.R.anim.slide_out_right);//左进右出
+//                overridePendingTransition(R.anim.page_in,R.anim.page_out);
+                overridePendingTransition(R.anim.in,R.anim.out);
                 break;
             case R.id.head_note://游记
                 intent = new Intent(this,NoteActivity.class);
                 intent.putExtra("name","全部游记");
                 intent.putExtra("id",itemInfo.getId());
                 startActivity(intent);
+                overridePendingTransition(R.anim.in,R.anim.out);
                 break;
             case R.id.head_notice:
                 intent = new Intent(this,HomeHead2Activity.class);
                 intent.putExtra("link",itemInfo.getPlayGuide());
                 intent.putExtra("name","旅游指南");
                 startActivity(intent);
+                overridePendingTransition(R.anim.in,R.anim.out);
                 break;
             case R.id.head_viewSpot:
                 intent = new Intent(this,ViewSpotActivity.class);
                 intent.putExtra("name",itemInfo.getZhName());
                 intent.putExtra("id",itemInfo.getId());
                 startActivity(intent);
+                overridePendingTransition(R.anim.in,R.anim.out);
                 break;
             case R.id.head_plan://行程
                 break;
@@ -176,18 +183,21 @@ public class HotListActivity extends AppCompatActivity implements IHotList,View.
                 intent.putExtra("link",itemInfo.getTrafficInfoUrl());
                 intent.putExtra("name","交通指南");
                 startActivity(intent);
+                overridePendingTransition(R.anim.in,R.anim.out);
                 break;
             case R.id.foot:
                 intent = new Intent(this,LookAllActivity.class);
                 intent.putExtra("name",itemInfo.getZhName());
                 intent.putExtra("id",itemInfo.getId());
                 startActivity(intent);
+                overridePendingTransition(R.anim.in,R.anim.out);
                 break;
             case R.id.foot_iv:
                 intent = new Intent(this,HomeHead2Activity.class);
                 intent.putExtra("name","旅行派各国商户招募计划");
                 intent.putExtra("link","http://nluloh.epub360.com/v2/manage/book/pe3rs2/");
                 startActivity(intent);
+                overridePendingTransition(R.anim.in,R.anim.out);
                 break;
             case R.id.back:
                 finish();

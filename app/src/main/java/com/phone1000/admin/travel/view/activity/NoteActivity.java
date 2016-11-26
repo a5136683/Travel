@@ -1,6 +1,7 @@
 package com.phone1000.admin.travel.view.activity;
 
 import android.content.Intent;
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.phone1000.admin.travel.HomeHead2Activity;
@@ -30,7 +32,10 @@ public class NoteActivity extends AppCompatActivity implements IHotList{
     @BindView(R.id.note_list)ListView note_list;
     @BindView(R.id.country_list_title)TextView title;
     @BindView(R.id.back)ImageView back;
+    @BindView(R.id.load)ImageView load;
+    @BindView(R.id.load_rl)RelativeLayout rl;
 
+    private AnimationDrawable drawable = null;
     private String id = null;
     private int page = 0;
     private boolean flag = false;
@@ -94,6 +99,8 @@ public class NoteActivity extends AppCompatActivity implements IHotList{
         id = getIntent().getStringExtra("id");
         adapter = new NoteAdapter(this,list);
         note_list.setAdapter(adapter);
+        drawable = (AnimationDrawable) load.getBackground();
+        drawable.start();
     }
 
     @Override
@@ -108,7 +115,9 @@ public class NoteActivity extends AppCompatActivity implements IHotList{
 
     @Override
     public void getNoteData(List<NoteDataInfo.ResultBean> result) {
+        if(result!=null){
+            rl.setVisibility(View.GONE);
         list.addAll(result);
-        adapter.notifyDataSetChanged();
+        adapter.notifyDataSetChanged();}
     }
 }

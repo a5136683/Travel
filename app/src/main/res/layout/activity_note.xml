@@ -8,6 +8,7 @@
     tools:context="com.phone1000.admin.travel.view.activity.NoteActivity">
 
     <include layout="@layout/tool_bar"/>
+    <include layout="@layout/load_animation"/>
     <ListView
         android:id="@+id/note_list"
         android:layout_width="match_parent"

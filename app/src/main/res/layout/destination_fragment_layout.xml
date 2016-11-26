@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_weight="1"
+            android:background="#6666"
             android:textColor="#fff"
             android:text="热门"/>
         <TextView
@@ -58,6 +59,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:layout_weight="1"
+            android:background="#6666"
             android:textColor="#fff"
             android:text="亚洲"/>
         <TextView
@@ -67,11 +69,13 @@
             android:textColor="#fff"
             android:gravity="center"
             android:layout_weight="1"
+            android:background="#6666"
             android:text="北美"/>
         <TextView
             android:id="@+id/destination_South"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#6666"
             android:textColor="#fff"
             android:gravity="center"
             android:layout_weight="1"
@@ -80,6 +84,7 @@
             android:id="@+id/destination_Europe"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#6666"
             android:textColor="#fff"
             android:gravity="center"
             android:layout_weight="1"
@@ -89,6 +94,7 @@
             android:layout_width="match_parent"
             android:textColor="#fff"
             android:layout_height="wrap_content"
+            android:background="#6666"
             android:gravity="center"
             android:layout_weight="1"
             android:text="非洲"/>
@@ -97,6 +103,7 @@
             android:layout_width="match_parent"
             android:textColor="#fff"
             android:layout_height="wrap_content"
+            android:background="#6666"
             android:gravity="center"
             android:layout_weight="1"
             android:text="大洋洲"/>

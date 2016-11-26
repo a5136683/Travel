@@ -21,12 +21,16 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CountryActivity extends AppCompatActivity implements ICountryList{
+public class CountryActivity extends AppCompatActivity implements ICountryList {
 
-    @BindView(R.id.country_list)RecyclerView country_list;
-    @BindView(R.id.country_list_title)TextView country_list_title;
-    @BindView(R.id.load)ImageView load;
-    @BindView(R.id.back)ImageView back;
+    @BindView(R.id.country_list)
+    RecyclerView country_list;
+    @BindView(R.id.country_list_title)
+    TextView country_list_title;
+    @BindView(R.id.load)
+    ImageView load;
+    @BindView(R.id.back)
+    ImageView back;
     private AnimationDrawable drawable = null;
 
     private ICountryPresenter iCountryPresenter = new CountryPresenter(this);
@@ -51,8 +55,8 @@ public class CountryActivity extends AppCompatActivity implements ICountryList{
     @Override
     public void getCountryDataInfo(List<CountryDataInfo.ResultBean> result) {
         load.setVisibility(View.GONE);
-        country_list.setLayoutManager(new GridLayoutManager(this,2, GridLayout.VERTICAL,false));
-        country_list.setAdapter(new CountryAdapter(this,result));
+        country_list.setLayoutManager(new GridLayoutManager(this, 2, GridLayout.VERTICAL, false));
+        country_list.setAdapter(new CountryAdapter(this, result));
 
     }
 }
