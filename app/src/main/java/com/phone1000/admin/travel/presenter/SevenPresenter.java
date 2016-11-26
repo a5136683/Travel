@@ -1,7 +1,7 @@
 package com.phone1000.admin.travel.presenter;
 
 import com.phone1000.admin.travel.bean.SevenDataInfo;
-import com.phone1000.admin.travel.model.ISevenData;
+import com.phone1000.admin.travel.model.IBaseData;
 import com.phone1000.admin.travel.model.SevenData;
 import com.phone1000.admin.travel.view.ISevenView;
 
@@ -11,9 +11,9 @@ import java.util.List;
  * Created by admin on 2016/11/19.
  */
 
-public class SevenPresenter implements ISevenPresenter{
+public class SevenPresenter extends AllPresenter{
 
-    private ISevenData iSevenData = new SevenData(this);
+    private IBaseData iSevenData = new SevenData(this);
     private ISevenView iSevenView = null;
 
     public SevenPresenter(ISevenView iSevenView) {
@@ -51,7 +51,7 @@ public class SevenPresenter implements ISevenPresenter{
     }
 
     @Override
-    public void getData(List<SevenDataInfo.ResultBean> list) {
+    public void getSevenData(List<SevenDataInfo.ResultBean> list) {
         iSevenView.getData(list);
     }
 }

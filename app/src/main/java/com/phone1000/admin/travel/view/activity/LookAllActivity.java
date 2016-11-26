@@ -2,7 +2,6 @@ package com.phone1000.admin.travel.view.activity;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.ImageView;
@@ -15,7 +14,7 @@ import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.presenter.HotListPresenter;
-import com.phone1000.admin.travel.presenter.IHotListPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class LookAllActivity extends AppCompatActivity implements IHotList{
+public class LookAllActivity extends BaseActivity{
 
     @BindView(R.id.country_list_title)TextView country_list_title;
     @BindView(R.id.look_list)ListView look_list;
@@ -35,7 +34,7 @@ public class LookAllActivity extends AppCompatActivity implements IHotList{
     private String id = null;
     private int start = 0 ;
     private boolean flag = false;
-    private IHotListPresenter iHotListPresenter = new HotListPresenter(this);
+    private IAllPresenter iHotListPresenter = new HotListPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

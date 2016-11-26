@@ -15,7 +15,7 @@ import android.widget.ListView;
 import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.SevenFragmentAdapter;
 import com.phone1000.admin.travel.bean.SevenDataInfo;
-import com.phone1000.admin.travel.presenter.ISevenPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 import com.phone1000.admin.travel.presenter.SevenPresenter;
 import com.phone1000.admin.travel.view.activity.CountryActivity;
 
@@ -30,7 +30,7 @@ import butterknife.ButterKnife;
  */
 
 public class AfricaFragment extends Fragment implements ISevenView{
-    private ISevenPresenter iSevenPresenter = new SevenPresenter(this);
+    private IAllPresenter iSevenPresenter = new SevenPresenter(this);
     private String url = "http://api.lvxingpai.com";
     private List<SevenDataInfo.ResultBean> list = new ArrayList<>();
     private AnimationDrawable animationDrawable = null;

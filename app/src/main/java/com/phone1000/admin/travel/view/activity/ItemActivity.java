@@ -7,7 +7,6 @@ import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
@@ -20,7 +19,7 @@ import com.phone1000.admin.travel.MapActivity;
 import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.ItemViewPagerAdapter;
 import com.phone1000.admin.travel.bean.Item2DataInfo;
-import com.phone1000.admin.travel.presenter.IItemPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 import com.phone1000.admin.travel.presenter.ItemPresenter;
 import com.phone1000.admin.travel.utils.IsAvailable;
 
@@ -30,7 +29,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ItemActivity extends AppCompatActivity implements IItem, View.OnClickListener {
+public class ItemActivity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.item_vp)
     ViewPager item_vp;
@@ -73,7 +72,7 @@ public class ItemActivity extends AppCompatActivity implements IItem, View.OnCli
 
     private String id = null;
     private String name = null;
-    private IItemPresenter iItemPresenter = new ItemPresenter(this);
+    private IAllPresenter iItemPresenter = new ItemPresenter(this);
     private Intent intent = null;
     private Item2DataInfo.ResultBean data = null;
     private AnimationDrawable drawable = null;

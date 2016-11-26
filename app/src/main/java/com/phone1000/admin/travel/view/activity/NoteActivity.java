@@ -3,7 +3,6 @@ package com.phone1000.admin.travel.view.activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -19,7 +18,7 @@ import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.presenter.HotListPresenter;
-import com.phone1000.admin.travel.presenter.IHotListPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +26,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class NoteActivity extends AppCompatActivity implements IHotList{
+public class NoteActivity extends BaseActivity{
 
     @BindView(R.id.note_list)ListView note_list;
     @BindView(R.id.country_list_title)TextView title;
@@ -39,7 +38,7 @@ public class NoteActivity extends AppCompatActivity implements IHotList{
     private String id = null;
     private int page = 0;
     private boolean flag = false;
-    private IHotListPresenter iHotListPresenter = new HotListPresenter(this);
+    private IAllPresenter iHotListPresenter = new HotListPresenter(this);
     private List<NoteDataInfo.ResultBean> list = new ArrayList<>();
     private NoteAdapter adapter = null;
     private Intent intent = null;

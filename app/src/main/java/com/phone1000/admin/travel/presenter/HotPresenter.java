@@ -2,7 +2,7 @@ package com.phone1000.admin.travel.presenter;
 
 import com.phone1000.admin.travel.bean.HotDataInfo;
 import com.phone1000.admin.travel.model.HotData;
-import com.phone1000.admin.travel.model.IDataHot;
+import com.phone1000.admin.travel.model.IBaseData;
 import com.phone1000.admin.travel.view.IHotFragment;
 
 import java.util.List;
@@ -11,10 +11,10 @@ import java.util.List;
  * Created by admin on 2016/11/18.
  */
 
-public class HotPresenter implements IPresenterHot {
+public class HotPresenter extends AllPresenter {
 
     private IHotFragment iHotFragment = null;
-    private IDataHot iDataHot = new HotData(this);
+    private IBaseData iDataHot = new HotData(this);
 
     public HotPresenter(IHotFragment iHotFragment) {
         this.iHotFragment = iHotFragment;

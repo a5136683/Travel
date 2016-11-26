@@ -3,7 +3,6 @@ package com.phone1000.admin.travel.view.activity;
 import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -20,7 +19,7 @@ import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.presenter.HotListPresenter;
-import com.phone1000.admin.travel.presenter.IHotListPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,9 +27,9 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class HotListActivity extends AppCompatActivity implements IHotList,View.OnClickListener{
+public class HotListActivity extends BaseActivity implements View.OnClickListener{
     String url = "http://api.lvxingpai.com/app/marketplace/commodities?count=3&locality=546f2da8b8ce0440eddb28e0&start=1";
-    private IHotListPresenter iHotListPresenter = new HotListPresenter(this);
+    private IAllPresenter iHotListPresenter = new HotListPresenter(this);
     private AnimationDrawable drawable = null;
     private Intent intent = null;
     private ItemHeadDataInfo.ResultBean itemInfo = null;

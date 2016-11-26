@@ -3,7 +3,8 @@ package com.phone1000.admin.travel.model;
 import com.phone1000.admin.travel.bean.ViewSpotDataInfo;
 import com.phone1000.admin.travel.interf.BaseUrl;
 import com.phone1000.admin.travel.interf.HttpService;
-import com.phone1000.admin.travel.presenter.IViewSpotPresenter;
+import com.phone1000.admin.travel.presenter.AllPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 
 import java.util.List;
 
@@ -17,12 +18,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by admin on 2016/11/23.
  */
 
-public class ViewSpotData implements IViewSpotData{
+public class ViewSpotData extends BaseData{
 
     private Retrofit retrofit = null;
-    private IViewSpotPresenter iViewSpotPresenter = null;
+    private IAllPresenter iViewSpotPresenter = null;
 
-    public ViewSpotData(IViewSpotPresenter iViewSpotPresenter) {
+    public ViewSpotData(AllPresenter iViewSpotPresenter) {
         this.iViewSpotPresenter = iViewSpotPresenter;
     }
 
@@ -35,7 +36,7 @@ public class ViewSpotData implements IViewSpotData{
             @Override
             public void onResponse(Call<ViewSpotDataInfo> call, Response<ViewSpotDataInfo> response) {
                 List<ViewSpotDataInfo.ResultBean> result = response.body().getResult();
-                iViewSpotPresenter.getData(result);
+                iViewSpotPresenter.getViewSpotData(result);
             }
 
             @Override

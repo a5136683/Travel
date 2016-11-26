@@ -2,7 +2,8 @@ package com.phone1000.admin.travel.model;
 
 import com.phone1000.admin.travel.bean.SevenDataInfo;
 import com.phone1000.admin.travel.interf.HttpService;
-import com.phone1000.admin.travel.presenter.ISevenPresenter;
+import com.phone1000.admin.travel.presenter.AllPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 
 import java.util.List;
 
@@ -16,12 +17,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by admin on 2016/11/19.
  */
 
-public class SevenData implements ISevenData {
+public class SevenData extends BaseData {
 
     private Retrofit retrofit;
-    private ISevenPresenter iSevenPresenter = null;
+    private IAllPresenter iSevenPresenter = null;
 
-    public SevenData(ISevenPresenter iSevenPresenter) {
+    public SevenData(AllPresenter iSevenPresenter) {
         this.iSevenPresenter = iSevenPresenter;
     }
 
@@ -34,7 +35,7 @@ public class SevenData implements ISevenData {
             @Override
             public void onResponse(Call<SevenDataInfo> call, Response<SevenDataInfo> response) {
                 List<SevenDataInfo.ResultBean> result = response.body().getResult();
-                iSevenPresenter.getData(result);
+                iSevenPresenter.getSevenData(result);
             }
 
             @Override
@@ -53,7 +54,7 @@ public class SevenData implements ISevenData {
             @Override
             public void onResponse(Call<SevenDataInfo> call, Response<SevenDataInfo> response) {
                 List<SevenDataInfo.ResultBean> result = response.body().getResult();
-                iSevenPresenter.getData(result);
+                iSevenPresenter.getSevenData(result);
             }
 
             @Override
@@ -72,7 +73,7 @@ public class SevenData implements ISevenData {
             @Override
             public void onResponse(Call<SevenDataInfo> call, Response<SevenDataInfo> response) {
                 List<SevenDataInfo.ResultBean> result = response.body().getResult();
-                iSevenPresenter.getData(result);
+                iSevenPresenter.getSevenData(result);
             }
 
             @Override
@@ -91,7 +92,7 @@ public class SevenData implements ISevenData {
             @Override
             public void onResponse(Call<SevenDataInfo> call, Response<SevenDataInfo> response) {
                 List<SevenDataInfo.ResultBean> result = response.body().getResult();
-                iSevenPresenter.getData(result);
+                iSevenPresenter.getSevenData(result);
             }
 
             @Override
@@ -110,7 +111,7 @@ public class SevenData implements ISevenData {
             @Override
             public void onResponse(Call<SevenDataInfo> call, Response<SevenDataInfo> response) {
                 List<SevenDataInfo.ResultBean> result = response.body().getResult();
-                iSevenPresenter.getData(result);
+                iSevenPresenter.getSevenData(result);
             }
 
             @Override
@@ -129,7 +130,7 @@ public class SevenData implements ISevenData {
             @Override
             public void onResponse(Call<SevenDataInfo> call, Response<SevenDataInfo> response) {
                 List<SevenDataInfo.ResultBean> result = response.body().getResult();
-                iSevenPresenter.getData(result);
+                iSevenPresenter.getSevenData(result);
             }
 
             @Override

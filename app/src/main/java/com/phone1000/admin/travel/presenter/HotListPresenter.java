@@ -4,8 +4,9 @@ import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.model.HotListData;
-import com.phone1000.admin.travel.model.IHotListData;
-import com.phone1000.admin.travel.view.activity.IHotList;
+import com.phone1000.admin.travel.model.IBaseData;
+import com.phone1000.admin.travel.view.activity.BaseActivity;
+import com.phone1000.admin.travel.view.activity.IView;
 
 import java.util.List;
 
@@ -13,12 +14,12 @@ import java.util.List;
  * Created by admin on 2016/11/19.
  */
 
-public class HotListPresenter implements IHotListPresenter {
+public class HotListPresenter extends AllPresenter {
 
-    private IHotListData iHotListData = new HotListData(this);
-    private IHotList iHotList = null;
+    private IBaseData iHotListData = new HotListData(this);
+    private IView iHotList = null;
 
-    public HotListPresenter(IHotList iHotList) {
+    public HotListPresenter(BaseActivity iHotList) {
         this.iHotList = iHotList;
     }
 

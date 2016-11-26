@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
@@ -16,7 +15,7 @@ import android.widget.TextView;
 import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.ViewSpotAdapter;
 import com.phone1000.admin.travel.bean.ViewSpotDataInfo;
-import com.phone1000.admin.travel.presenter.IViewSpotPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 import com.phone1000.admin.travel.presenter.ViewSpotPresenter;
 
 import java.util.ArrayList;
@@ -25,7 +24,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ViewSpotActivity extends AppCompatActivity implements IViewSpot {
+public class ViewSpotActivity extends BaseActivity{
 
     private int page = 0;
     private Intent intent = null;
@@ -33,7 +32,7 @@ public class ViewSpotActivity extends AppCompatActivity implements IViewSpot {
     private ViewSpotAdapter adapter = null;
     private boolean flag = false;
     private List<ViewSpotDataInfo.ResultBean> list = new ArrayList<>();
-    private IViewSpotPresenter iViewSpotPresenter = new ViewSpotPresenter(this);
+    private IAllPresenter iViewSpotPresenter = new ViewSpotPresenter(this);
     private AnimationDrawable drawable = null;
     @BindView(R.id.view_spot)
     ListView view_spot;
@@ -116,7 +115,7 @@ public class ViewSpotActivity extends AppCompatActivity implements IViewSpot {
     }
 
     @Override
-    public void getData(List<ViewSpotDataInfo.ResultBean> result) {
+    public void getViewSoptData(List<ViewSpotDataInfo.ResultBean> result) {
         if (result != null) {
             rl.setVisibility(View.GONE);
             list.addAll(result);

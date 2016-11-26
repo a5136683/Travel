@@ -16,7 +16,7 @@ import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.HotFragmentAdapter;
 import com.phone1000.admin.travel.bean.HotDataInfo;
 import com.phone1000.admin.travel.presenter.HotPresenter;
-import com.phone1000.admin.travel.presenter.IPresenterHot;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 import com.phone1000.admin.travel.view.activity.HotListActivity;
 
 import java.util.ArrayList;
@@ -35,7 +35,7 @@ public class HotFragment extends Fragment implements IHotFragment{
     private AnimationDrawable animationDrawable = null;
     private List<HotDataInfo.ResultBean> list = new ArrayList<>();
     private String url = "http://api.lvxingpai.com";
-    private IPresenterHot iPresenterHot = new HotPresenter(this);
+    private IAllPresenter iPresenterHot = new HotPresenter(this);
     @BindView(R.id.hot_lv)ListView hot_lv;
     @BindView(R.id.load)ImageView load;
     @Nullable

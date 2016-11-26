@@ -1,9 +1,10 @@
 package com.phone1000.admin.travel.presenter;
 
 import com.phone1000.admin.travel.bean.ViewSpotDataInfo;
-import com.phone1000.admin.travel.model.IViewSpotData;
+import com.phone1000.admin.travel.model.IBaseData;
 import com.phone1000.admin.travel.model.ViewSpotData;
-import com.phone1000.admin.travel.view.activity.IViewSpot;
+import com.phone1000.admin.travel.view.activity.BaseActivity;
+import com.phone1000.admin.travel.view.activity.IView;
 
 import java.util.List;
 
@@ -11,12 +12,12 @@ import java.util.List;
  * Created by admin on 2016/11/23.
  */
 
-public class ViewSpotPresenter implements IViewSpotPresenter {
+public class ViewSpotPresenter extends AllPresenter{
 
-    private IViewSpot iViewSpot = null;
-    private IViewSpotData iViewSpotData = new ViewSpotData(this);
+    private IView iViewSpot = null;
+    private IBaseData iViewSpotData = new ViewSpotData(this);
 
-    public ViewSpotPresenter(IViewSpot iViewSpot) {
+    public ViewSpotPresenter(BaseActivity iViewSpot) {
         this.iViewSpot = iViewSpot;
     }
 
@@ -26,8 +27,8 @@ public class ViewSpotPresenter implements IViewSpotPresenter {
     }
 
     @Override
-    public void getData(List<ViewSpotDataInfo.ResultBean> result) {
-        iViewSpot.getData(result);
+    public void getViewSpotData(List<ViewSpotDataInfo.ResultBean> result) {
+        iViewSpot.getViewSoptData(result);
     }
 
     @Override

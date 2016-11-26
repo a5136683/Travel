@@ -2,7 +2,8 @@ package com.phone1000.admin.travel.model;
 
 import com.phone1000.admin.travel.bean.HotDataInfo;
 import com.phone1000.admin.travel.interf.HttpService;
-import com.phone1000.admin.travel.presenter.IPresenterHot;
+import com.phone1000.admin.travel.presenter.AllPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 
 import java.util.List;
 
@@ -16,13 +17,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by admin on 2016/11/18.
  */
 
-public class HotData implements IDataHot {
+public class HotData extends BaseData {
 
-    private IPresenterHot iPresenterHot = null;
+    private IAllPresenter iPresenterHot = null;
     private Retrofit retrofit;
     private String baseUrl = "http://api.lvxingpai.com";
 
-    public HotData(IPresenterHot iPresenterHot) {
+    public HotData(AllPresenter iPresenterHot) {
         this.iPresenterHot = iPresenterHot;
     }
 

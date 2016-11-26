@@ -5,7 +5,8 @@ import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.interf.BaseUrl;
 import com.phone1000.admin.travel.interf.HttpService;
-import com.phone1000.admin.travel.presenter.IHotListPresenter;
+import com.phone1000.admin.travel.presenter.AllPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 
 import java.util.List;
 
@@ -19,12 +20,12 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by admin on 2016/11/19.
  */
 
-public class HotListData implements IHotListData{
+public class HotListData extends BaseData{
 
-    private IHotListPresenter iHotListPresenter = null;
+    private IAllPresenter iHotListPresenter = null;
     private Retrofit retrofit = null;
 
-    public HotListData(IHotListPresenter iHotListPresenter) {
+    public HotListData(AllPresenter iHotListPresenter) {
         this.iHotListPresenter = iHotListPresenter;
     }
 

@@ -2,7 +2,6 @@ package com.phone1000.admin.travel.view.activity;
 
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -14,14 +13,14 @@ import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.CountryAdapter;
 import com.phone1000.admin.travel.bean.CountryDataInfo;
 import com.phone1000.admin.travel.presenter.CountryPresenter;
-import com.phone1000.admin.travel.presenter.ICountryPresenter;
+import com.phone1000.admin.travel.presenter.IAllPresenter;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class CountryActivity extends AppCompatActivity implements ICountryList {
+public class CountryActivity extends BaseActivity{
 
     @BindView(R.id.country_list)
     RecyclerView country_list;
@@ -33,7 +32,7 @@ public class CountryActivity extends AppCompatActivity implements ICountryList {
     ImageView back;
     private AnimationDrawable drawable = null;
 
-    private ICountryPresenter iCountryPresenter = new CountryPresenter(this);
+    private IAllPresenter iCountryPresenter = new CountryPresenter(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +56,5 @@ public class CountryActivity extends AppCompatActivity implements ICountryList {
         load.setVisibility(View.GONE);
         country_list.setLayoutManager(new GridLayoutManager(this, 2, GridLayout.VERTICAL, false));
         country_list.setAdapter(new CountryAdapter(this, result));
-
     }
 }
