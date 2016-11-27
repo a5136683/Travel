@@ -1,4 +1,4 @@
-package com.phone1000.admin.travel.pain;
+package com.phone1000.admin.travel.myview;
 
 import android.content.Context;
 import android.graphics.Canvas;

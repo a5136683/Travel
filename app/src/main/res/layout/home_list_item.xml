@@ -63,7 +63,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginBottom="33dp"
             android:src="@mipmap/icon_price" />
-        <com.phone1000.admin.travel.pain.DelTextView
+        <com.phone1000.admin.travel.myview.DelTextView
             android:id="@+id/txt_zhekou"
             android:layout_width="wrap_content"
             android:layout_height="30dp"

@@ -18,6 +18,7 @@ import android.widget.AbsListView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.phone1000.admin.travel.R;
@@ -171,8 +172,8 @@ public class HomeFragment extends Fragment {
 
                     @Override
                     public void onError(Throwable ex, boolean isOnCallback) {
-//                        Log.d("test", "？？？？？？？？？？？？？？？？？？？？？？" + ex);
-//                        Toast.makeText(getActivity(), "**********////////LV///////*************请求失败", Toast.LENGTH_SHORT).show();
+                        Log.d("test", "？？？？？？？？？？？？？？？？？？？？？？" + ex);
+                       Toast.makeText(getActivity(), "**********////////LV///////*************请求失败", Toast.LENGTH_SHORT).show();
                     }
 
                     @Override
