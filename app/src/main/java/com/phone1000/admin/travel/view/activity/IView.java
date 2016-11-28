@@ -5,6 +5,7 @@ import com.phone1000.admin.travel.bean.Item2DataInfo;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
+import com.phone1000.admin.travel.bean.PhotoDataInfo;
 import com.phone1000.admin.travel.bean.ViewSpotDataInfo;
 
 import java.util.List;
@@ -19,5 +20,6 @@ public interface IView {
     void getHeadData(ItemHeadDataInfo.ResultBean result);
     void getNoteData(List<NoteDataInfo.ResultBean> result);
     void getData(Item2DataInfo.ResultBean result);
-    void getViewSoptData(List<ViewSpotDataInfo.ResultBean> result);
+    void getViewSpotData(List<ViewSpotDataInfo.ResultBean> result);
+    void getPhotoData(List<PhotoDataInfo.ResultBean.AlbumBean> list);
 }

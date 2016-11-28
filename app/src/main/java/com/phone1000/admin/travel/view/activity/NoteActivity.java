@@ -14,8 +14,6 @@ import android.widget.TextView;
 import com.phone1000.admin.travel.HomeHead2Activity;
 import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.NoteAdapter;
-import com.phone1000.admin.travel.bean.ItemDataInfo;
-import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.presenter.HotListPresenter;
 import com.phone1000.admin.travel.presenter.IAllPresenter;
@@ -100,16 +98,6 @@ public class NoteActivity extends BaseActivity{
         note_list.setAdapter(adapter);
         drawable = (AnimationDrawable) load.getBackground();
         drawable.start();
-    }
-
-    @Override
-    public void getData(List<ItemDataInfo.ResultBean> result) {
-
-    }
-
-    @Override
-    public void getHeadData(ItemHeadDataInfo.ResultBean result) {
-
     }
 
     @Override

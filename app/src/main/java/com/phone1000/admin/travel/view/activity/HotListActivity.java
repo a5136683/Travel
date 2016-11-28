@@ -17,7 +17,6 @@ import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.HotListAdapter;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
-import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.presenter.HotListPresenter;
 import com.phone1000.admin.travel.presenter.IAllPresenter;
 
@@ -66,6 +65,7 @@ public class HotListActivity extends BaseActivity implements View.OnClickListene
         foot.setOnClickListener(this);
         back.setOnClickListener(this);
         foot_iv.setOnClickListener(this);
+        head_image.setOnClickListener(this);
 //        hot_list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 //            @Override
 //            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
@@ -132,13 +132,14 @@ public class HotListActivity extends BaseActivity implements View.OnClickListene
     }
 
     @Override
-    public void getNoteData(List<NoteDataInfo.ResultBean> result) {
-
-    }
-
-    @Override
     public void onClick(View view) {
         switch (view.getId()){
+            case R.id.head_image:
+                intent = new Intent(this,PhotoActivity.class);
+                intent.putExtra("id",itemInfo.getId());
+                intent.putExtra("name",itemInfo.getZhName());
+                startActivity(intent);
+                break;
             case R.id.head_food:
 
                 break;

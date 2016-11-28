@@ -5,8 +5,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.phone1000.admin.travel.mainfragment.CustomizeFragment;
 import com.phone1000.admin.travel.mainfragment.DestinationFragment;
@@ -29,6 +31,7 @@ ImageView iv_Mine;
     ImageView iv_Customize;
     @BindView(R.id.iv_Message)
     ImageView iv_Message;
+    private long lastTime = 0;
     private Fragment homeFragment, destinationFragment, customizeFragment,messageFragment, mineFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +39,7 @@ ImageView iv_Mine;
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         setSelect(0);
+
     }
 
     private void setSelect(int select) {
@@ -152,5 +156,19 @@ ImageView iv_Mine;
         if (mineFragment!=null){
             transaction.hide(mineFragment);
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode==KeyEvent.KEYCODE_BACK){
+            if(System.currentTimeMillis() - lastTime > 2000){
+                Toast.makeText(this,"再摁一次退出程序",Toast.LENGTH_SHORT).show();
+                lastTime = System.currentTimeMillis();
+            }else{
+                finish();
+            }
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

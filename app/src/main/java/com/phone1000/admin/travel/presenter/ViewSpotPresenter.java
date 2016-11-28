@@ -28,7 +28,7 @@ public class ViewSpotPresenter extends AllPresenter{
 
     @Override
     public void getViewSpotData(List<ViewSpotDataInfo.ResultBean> result) {
-        iViewSpot.getViewSoptData(result);
+        iViewSpot.getViewSpotData(result);
     }
 
     @Override

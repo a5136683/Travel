@@ -6,6 +6,7 @@ import com.phone1000.admin.travel.bean.Item2DataInfo;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
+import com.phone1000.admin.travel.bean.PhotoDataInfo;
 import com.phone1000.admin.travel.bean.SevenDataInfo;
 import com.phone1000.admin.travel.bean.ViewSpotDataInfo;
 
@@ -45,4 +46,7 @@ public interface HttpService {
     Call<NoteDataInfo>getNoteInfo(@Query("locality")String id, @Query("page")String page, @Query("pageSize")String pageSize);
     @GET("app/poi/viewspots/{id}")
     Call<Item2DataInfo>getItemInfo(@Path("id")String id);
+    //http://api.lvxingpai.com/app/geo/localities/546f2daab8ce0440eddb2acc/albums?pageSize=100
+    @GET("app/geo/localities/{id}/albums")
+    Call<PhotoDataInfo>getPhotoDataInfo(@Path("id")String id,@Query("pageSize")String size);
 }

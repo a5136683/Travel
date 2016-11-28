@@ -6,6 +6,7 @@ import com.phone1000.admin.travel.bean.Item2DataInfo;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
+import com.phone1000.admin.travel.bean.PhotoDataInfo;
 import com.phone1000.admin.travel.bean.SevenDataInfo;
 import com.phone1000.admin.travel.bean.ViewSpotDataInfo;
 
@@ -113,6 +114,11 @@ public class AllPresenter implements IAllPresenter {
 
     @Override
     public void getNoteData() {
+
+    }
+
+    @Override
+    public void getPhotoData(List<PhotoDataInfo.ResultBean.AlbumBean> list) {
 
     }
 }

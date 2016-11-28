@@ -11,8 +11,6 @@ import android.widget.TextView;
 import com.phone1000.admin.travel.R;
 import com.phone1000.admin.travel.adapter.HotListAdapter;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
-import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
-import com.phone1000.admin.travel.bean.NoteDataInfo;
 import com.phone1000.admin.travel.presenter.HotListPresenter;
 import com.phone1000.admin.travel.presenter.IAllPresenter;
 
@@ -101,13 +99,4 @@ public class LookAllActivity extends BaseActivity{
         swipe.setRefreshing(false);
     }
 
-    @Override
-    public void getHeadData(ItemHeadDataInfo.ResultBean result) {
-
-    }
-
-    @Override
-    public void getNoteData(List<NoteDataInfo.ResultBean> result) {
-
-    }
 }

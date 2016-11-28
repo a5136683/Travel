@@ -115,7 +115,7 @@ public class ViewSpotActivity extends BaseActivity{
     }
 
     @Override
-    public void getViewSoptData(List<ViewSpotDataInfo.ResultBean> result) {
+    public void getViewSpotData(List<ViewSpotDataInfo.ResultBean> result) {
         if (result != null) {
             rl.setVisibility(View.GONE);
             list.addAll(result);

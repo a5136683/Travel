@@ -6,6 +6,7 @@ import com.phone1000.admin.travel.bean.Item2DataInfo;
 import com.phone1000.admin.travel.bean.ItemDataInfo;
 import com.phone1000.admin.travel.bean.ItemHeadDataInfo;
 import com.phone1000.admin.travel.bean.NoteDataInfo;
+import com.phone1000.admin.travel.bean.PhotoDataInfo;
 import com.phone1000.admin.travel.bean.SevenDataInfo;
 import com.phone1000.admin.travel.bean.ViewSpotDataInfo;
 
@@ -36,4 +37,5 @@ public interface IAllPresenter {
     void getId(String id,String page);
     void getViewSpotData(List<ViewSpotDataInfo.ResultBean> result);
     void getNoteData();
+    void getPhotoData(List<PhotoDataInfo.ResultBean.AlbumBean> list);
 }
