@@ -51,6 +51,5 @@ public class BaseActivity extends AppCompatActivity implements IView{
 
     @Override
     public void getPhotoData(List<PhotoDataInfo.ResultBean.AlbumBean> list) {
-
     }
 }
